@@ -2,15 +2,15 @@ schema_version: 1
 
 context:
   name: azure-mgmt-applicationinsights
-  version: 4.1.0
+  version: 1.0.0
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/azure_mgmt_applicationinsights-${{ version }}.tar.gz
-  sha256: 15531390f12ce3d767cd3f1949af36aa39077c145c952fec4d80303c86ec7b6c
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/azure-mgmt-applicationinsights-${{ version }}.zip
+  sha256: c287a2c7def4de19f92c0c31ba02867fac6f5b8df71b5dbdab19288bb455fc5b
 
 build:
   number: 0
@@ -24,10 +24,9 @@ requirements:
     - pip
   run:
     - python >=${{ python_min }}
-    - isodate >=0.6.1
-    - typing_extensions >=4.6.0
-    - azure-common >=1.1
-    - azure-mgmt-core >=1.3.2
+    - azure-common >=1.1,<2.0
+    - azure-mgmt-core >=1.2.0,<2.0.0
+    - msrest >=0.5.0
 
 tests:
   - python:
